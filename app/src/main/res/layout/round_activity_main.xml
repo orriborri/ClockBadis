@@ -13,4 +13,22 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:text="@string/hello_round" />
+
+    <Button
+        android:id="@+id/buttonplus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="26dp"
+        android:text="+"
+        android:layout_above="@+id/text"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:id="@+id/buttonminus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/buttonplus"
+        android:layout_below="@+id/text"
+        android:layout_marginTop="25dp"
+        android:text="-" />
 </RelativeLayout>
