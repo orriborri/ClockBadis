@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/initViewer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="orre.clockbadis.MainActivity"
-    tools:deviceIds="wear_round">
-
-    >
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="join"
-        android:onClick="createNewMacth" />
+    tools:deviceIds="wear_round"
+    android:orientation="horizontal"
+    tools:layout_editor_absoluteY="0dp"
+    tools:layout_editor_absoluteX="0dp">
 
     <Button
         android:id="@+id/button3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="142dp"
+        android:layout_height="85dp"
         android:text="Create"
-        android:onClick="createNewMacth" />
+        android:onClick="createNewMacth"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintVertical_bias="1.0" />
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="139dp"
+        android:layout_height="85dp"
+        android:onClick="joinMatch"
+        android:text="Join"
+        android:layout_below="@id/button3"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.506"
+        android:layout_marginBottom="25dp" />
 
-</LinearLayout>
+    <android.support.constraint.Guideline
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/guideline"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="207dp"
+        tools:layout_editor_absoluteY="34dp"
+        tools:layout_editor_absoluteX="0dp" />
+</android.support.constraint.ConstraintLayout>
