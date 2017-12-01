@@ -24,13 +24,11 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Arrays;
+
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-
-import static orre.clockbadis.R.id.join;
-import static orre.clockbadis.R.id.key;
 
 
 public class MainActivity extends Activity {
@@ -40,15 +38,15 @@ public class MainActivity extends Activity {
     private int myScore = 0;
     private boolean match = false;
     ExecutorService es = Executors.newSingleThreadExecutor();
-    JSONObject res;
+
     WebSocketFactory factory = new WebSocketFactory().setConnectionTimeout(5000);
     private WebSocket ws = factory.createSocket("ws://klockbadis.herokuapp.com")
             .addListener(new WebSocketAdapter() {
-                public void onTextMessage(WebSocket websocket, String message) throws JSONException {
-                    res = new JSONObject(message);
-                    System.out.println(res.toString());
+                public void onTextMessage(WebSocket websocket, String message) {
+                    System.out.println(message);
                 }
             });
+
     Future<WebSocket> future = ws.connect(es);
 
     public MainActivity() throws IOException {
@@ -82,6 +80,7 @@ public class MainActivity extends Activity {
     public boolean isMatch() {
         return match;
     }
+
 
     public void createNewMacth(View view) throws Exception {
         future.get();
